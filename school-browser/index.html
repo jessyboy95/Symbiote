@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>School Browser — Symbiote</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="left-controls">
+        <button id="newTabBtn" title="Open new tab">＋ New Tab</button>
+        <select id="engineSelect" aria-label="Search engine">
+          <option value="duckduckgo">DuckDuckGo</option>
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+        </select>
+        <input id="addressInput" placeholder="Enter search terms or URL" />
+        <button id="goBtn">Go</button>
+      </div>
+
+      <div class="right-controls">
+        <button id="historyBtn" title="History">History</button>
+        <button id="settingsBtn" title="Settings">Settings</button>
+        <div class="export-group">
+          <button id="exportBtn" title="Export data">Export</button>
+          <input id="importFile" type="file" accept="application/json" />
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <nav class="tabs" id="tabsContainer" aria-label="Tabs"></nav>
+
+      <section class="content-area">
+        <div id="pages" class="pages"></div>
+      </section>
+
+      <aside class="side" id="sidePanel">
+        <section id="historySection" class="panel hidden">
+          <h3>History</h3>
+          <div id="historyList" class="list"></div>
+          <div class="panel-actions">
+            <button id="clearHistory">Clear History</button>
+            <button id="downloadHistory">Download History</button>
+          </div>
+        </section>
+
+        <section id="settingsSection" class="panel hidden">
+          <h3>Settings</h3>
+          <label>Default search engine
+            <select id="defaultEngine">
+              <option value="duckduckgo">DuckDuckGo</option>
+              <option value="google">Google</option>
+              <option value="bing">Bing</option>
+            </select>
+          </label>
+
+          <label>Enforce Safe Search
+            <input type="checkbox" id="safeSearchToggle" />
+          </label>
+
+          <label>Background color
+            <input type="color" id="bgColor" />
+          </label>
+
+          <label>Background image
+            <input type="file" id="bgImageFile" accept="image/*" />
+          </label>
+
+          <div class="panel-actions">
+            <button id="applySettings">Apply</button>
+            <button id="resetSettings">Reset</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <small>School Browser — Local demo. Some sites block embedding; content may open in a new window.</small>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
